@@ -1,0 +1,3 @@
+module-01/ingest-nyc-taxi-yellow/ny_taxi_postgres_data/
+module-01/ingest-nyc-taxi-yellow/output.csv.gz
+module-01/ingest-nyc-taxi-yellow/yellow_tripdata_2021-01.csv.gz
