@@ -1,3 +1,11 @@
 module-01/ingest-nyc-taxi-yellow/ny_taxi_postgres_data/
 module-01/ingest-nyc-taxi-yellow/output.csv.gz
 module-01/ingest-nyc-taxi-yellow/yellow_tripdata_2021-01.csv.gz
+module-01/ingest-nyc-taxi-yellow/keys/
+module-01/terraform/terraform_basic/.terraform
+module-01/terraform/terraform_basic/.terraform.lock.hcl
+module-01/terraform/terraform_basic/terraform.tfstate
+module-01/terraform/terraform_with_variables/.terraform
+module-01/terraform/terraform_with_variables/.terraform.lock.hcl
+module-01/terraform/terraform_with_variables/terraform.tfstate
+module-01/terraform/terraform_with_variables/terraform.tfstate.backup
