@@ -9,3 +9,6 @@ module-01/terraform/terraform_with_variables/.terraform
 module-01/terraform/terraform_with_variables/.terraform.lock.hcl
 module-01/terraform/terraform_with_variables/terraform.tfstate
 module-01/terraform/terraform_with_variables/terraform.tfstate.backup
+module-03/terraform/.terraform
+module-03/terraform/.terraform.lock.hcl
+module-03/terraform/terraform.tfstate
