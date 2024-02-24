@@ -16,7 +16,7 @@ Pre-reqs:
 # services = ['fhv','green','yellow']
 init_url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/'
 # switch out the bucketname
-BUCKET = os.environ.get("GCP_GCS_BUCKET", "dbt_ny_taxi_module_3")
+BUCKET = os.environ.get("GCP_GCS_BUCKET", "dbt_ny_taxi_module_4")
 
 
 def upload_to_gcs(bucket, object_name, local_file):
@@ -90,7 +90,8 @@ def web_to_gcs(year, service):
         date_cols = ['pickup_datetime', 'dropOff_datetime']
 
     else:
-        warnings.warn(f"Unknown service: {service}. Please use 'yellow', 'green', or 'fhv'.")
+        warnings.warn(
+            f"Unknown service: {service}. Please use 'yellow', 'green', or 'fhv'.")
         return
 
     for i in range(12):
@@ -106,8 +107,9 @@ def web_to_gcs(year, service):
         request_url = f"{init_url}{service}/{file_name}"
         print(request_url)
         r = requests.get(request_url)
-        df_csv = pd.read_csv(BytesIO(r.content), compression='gzip', dtype=data_types, parse_dates=date_cols)
-        
+        df_csv = pd.read_csv(BytesIO(r.content), compression='gzip',
+                             dtype=data_types, parse_dates=date_cols)
+
         # define column dtypes and convert to lower
         df_csv_columns = map(str.lower, df_csv.columns)
 
@@ -132,15 +134,15 @@ def web_to_gcs(year, service):
         print(f"GCS: {service}/{file_name}")
 
         # Check if the file exists locally before attempting to delete it
-        if os.path.exists(file_name): 
+        if os.path.exists(file_name):
             os.remove(file_name)
             print(f"Local file {file_name} deleted.")
         else:
             print(f"Local file {file_name} does not exist.")
 
 
-web_to_gcs('2019', 'green')
-# web_to_gcs('2020', 'green')
-# web_to_gcs('2019', 'yellow')
-# web_to_gcs('2020', 'yellow')
-# web_to_gcs('2019', 'fhv')
+# web_to_gcs('2019', 'green')
+web_to_gcs('2020', 'green')
+web_to_gcs('2019', 'yellow')
+web_to_gcs('2020', 'yellow')
+web_to_gcs('2019', 'fhv')
