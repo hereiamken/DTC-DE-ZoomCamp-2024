@@ -111,7 +111,7 @@ def web_to_gcs(year, service):
                              dtype=data_types, parse_dates=date_cols)
 
         # define column dtypes and convert to lower
-        df_csv_columns = map(str.lower, df_csv.columns)
+        df_csv.columns = map(str.lower, df_csv.columns)
 
         # Convert DataFrame to Parquet format in memory
         file_name = file_name.replace('.csv.gz', '.parquet')
