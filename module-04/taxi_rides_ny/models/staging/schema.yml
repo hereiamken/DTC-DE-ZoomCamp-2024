@@ -13,8 +13,7 @@ sources:
     tables:
       - name: green_trips
       - name: yellow_trips
-      - name:
-          fhv_trips
+      - name: fhv_trips
           # freshness:
           # error_after: {count: 6, period: hour}
 
@@ -209,13 +208,13 @@ models:
       Therefore, this may not represent the total amount of trips dispatched by all TLC-licensed bases. 
       The TLC performs routine reviews of the records and takes enforcement actions when necessary to ensure, to the extent possible, complete and accurate information.
     columns:
-      - name: tripid
-        description: Primary key for this table, generated with a concatenation of dispatching_base_num+pickup_datetime
-        tests:
-          - unique:
-              severity: warn
-          - not_null:
-              severity: warn
+      # - name: tripid
+      #   description: Primary key for this table, generated with a concatenation of dispatching_base_num+pickup_datetime
+      #   tests:
+      #     - unique:
+      #         severity: warn
+      #     - not_null:
+      #         severity: warn
       - name: dispatching_base_num
         description: dispatching_base_num
       - name: pickup_datetime

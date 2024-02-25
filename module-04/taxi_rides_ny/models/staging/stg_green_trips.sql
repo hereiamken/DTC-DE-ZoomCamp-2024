@@ -2,7 +2,7 @@
 
 with
     tripdata as (
-        select *, row_number() over (partition by vendorid, lpep_pickup_datetime) as rn
+        select *, row_number() over (partition by cast(vendorid as int64), lpep_pickup_datetime) as rn
         from {{ source("staging", "green_trips") }}
         where vendorid is not null
     )
@@ -19,8 +19,8 @@ select
     as dropoff_locationid,
 
     -- timestamps
-    cast(lpep_pickup_datetime as timestamp) as pickup_datetime,
-    cast(lpep_dropoff_datetime as timestamp) as dropoff_datetime,
+    timestamp_micros(cast(lpep_pickup_datetime/1000 as int64)) as pickup_datetime,
+    timestamp_micros(cast(lpep_dropoff_datetime/1000 as int64)) as dropoff_datetime,
 
     -- trip info
     store_and_fwd_flag,

@@ -3,10 +3,12 @@
 with
     fhv_tripdata as (
         select * from {{ ref("stg_fhv_trips") }}
+        where pulocationid is not null
+        and dolocationid is not null
     ),
     dim_zones as (select * from {{ ref("dim_zones") }} where borough != 'Unknown')
 select
-    fhv_tripdata.tripid,
+    -- fhv_tripdata.tripid,
     fhv_tripdata.dispatching_base_num,
     fhv_tripdata.pulocationid,
     pickup_zone.borough as pickup_borough,
