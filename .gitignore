@@ -1,3 +1,4 @@
+__pycache__/
 module-01/ingest-nyc-taxi-yellow/ny_taxi_postgres_data/
 module-01/ingest-nyc-taxi-yellow/output.csv.gz
 module-01/ingest-nyc-taxi-yellow/yellow_tripdata_2021-01.csv.gz
@@ -16,3 +17,5 @@ module-04/terraform/.terraform
 module-04/terraform/.terraform.lock.hcl
 module-04/terraform/terraform.tfstate
 module-04/keys/
+module-06/module-06-env
+module-06/resources
