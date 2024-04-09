@@ -7,12 +7,12 @@ TOPIC_WINDOWED_VENDOR_ID_COUNT = 'vendor_counts_windowed'
 
 PRODUCE_TOPIC_GREEN_TRIPS = CONSUME_TOPIC_GREEN_TRIPS = 'green-trips'
 
-RIDE_SCHEMA = T.StructType(
+GREEN_TRIPS_SCHEMA = T.StructType(
     [T.StructField('lpep_pickup_datetime', T.TimestampType()),
      T.StructField('lpep_dropoff_datetime', T.TimestampType()),
      T.StructField("PULocationID", T.IntegerType()),
-     T.StructField("DOLocationID", T.FloatType()),
-     T.StructField("passenger_count", T.IntegerType()),
-     T.StructField("trip_distance", T.FloatType()),
-     T.StructField("tip_amount", T.FloatType()),
+     T.StructField("DOLocationID", T.IntegerType()),
+     T.StructField("passenger_count", T.DoubleType()),
+     T.StructField("trip_distance", T.DoubleType()),
+     T.StructField("tip_amount", T.DoubleType()),
      ])
